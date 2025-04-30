@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/books")
 @CrossOrigin(origins = "*") // Allow requests from React app
 public class BookController {
-
+    // new endpoint
     @Autowired
     private BookRepository bookRepository;
 
