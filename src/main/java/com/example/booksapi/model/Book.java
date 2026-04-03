@@ -14,6 +14,7 @@ public class Book {
     private String title;
     private String author;
     private String description;
+    private String genre;
 
     // Getters and Setters
     public Long getId() {
@@ -46,5 +47,13 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }
