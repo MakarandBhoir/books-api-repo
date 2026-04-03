@@ -5,6 +5,7 @@ This is a simple Books API built using Spring Boot 3 and Java 17. The API provid
 ## Features
 
 - CRUD operations for books
+- Search books by title, author, or genre (case-insensitive partial matching)
 - In-memory H2 database for quick setup and testing
 - Spring Boot for easy configuration and deployment
 
@@ -37,6 +38,9 @@ This is a simple Books API built using Spring Boot 3 and Java 17. The API provid
 
 - **Get all books**: `GET /api/books`
 - **Get a book by ID**: `GET /api/books/{id}`
+- **Search books**: `GET /api/books/search?title=...&author=...&genre=...`
+  - All query parameters are optional and support partial, case-insensitive matching
+  - Multiple parameters can be combined; returns `200 OK` with an empty list when no results are found
 - **Create a new book**: `POST /api/books`
 - **Update a book**: `PUT /api/books/{id}`
 - **Delete a book**: `DELETE /api/books/{id}`

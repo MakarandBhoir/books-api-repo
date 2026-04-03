@@ -10,6 +10,8 @@ import com.example.booksapi.repository.BookRepository;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RestController
 @RequestMapping("/api/books")
 @CrossOrigin(origins = "*") // Allow requests from React app
@@ -21,6 +23,15 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Book>> searchBooks(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) String genre) {
+        List<Book> results = bookRepository.searchBooks(title, author, genre);
+        return ResponseEntity.ok(results);
     }
 
     /**
